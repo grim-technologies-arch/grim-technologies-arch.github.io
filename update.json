@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "generated_by": "publish.sh",
+  "published_at": "2026-11-03T02:06:12Z",
+  "executor": {
+    "version": "1.0.35",
+    "channel": "stable",
+    "min_installer": 1,
+    "app": {
+      "url": "https://github.com/grim-technologies-arch/grim-technologies-arch.github.io/releases/download/v1.0.35/Claumi-1.0.35.zip",
+      "md5": "1958eae29426dc93d5335204b7117600",
+      "size": 123900246
+    }
+  },
+  "roblox": {
+    "version": "version-b09c93298b5d4cd1",
+    "player": "0.745.0.7451137",
+    "url": "https://setup.rbxcdn.com/mac/version-b09c93298b5d4cd1-RobloxPlayer.zip",
+    "md5": "34631c0c8c1ca3440575259e82849822",
+    "size": 157402404,
+    "archive_app": "RobloxPlayer.app",
+    "installer_app": "Contents/MacOS/RobloxPlayerInstaller.app"
+  }
+}
