@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "generated_by": "publish.sh",
-  "published_at": "2026-11-11T02:29:45Z",
+  "published_at": "2026-11-11T04:53:52Z",
   "executor": {
-    "version": "1.0.39",
+    "version": "1.0.40",
     "channel": "stable",
     "min_installer": 1,
     "app": {
-      "url": "https://github.com/grim-technologies-arch/grim-technologies-arch.github.io/releases/download/v1.0.39/Claumi-1.0.39.zip",
-      "md5": "5510600e5bf3e2775372ed9c6621e517",
-      "size": 123796893
+      "url": "https://github.com/grim-technologies-arch/grim-technologies-arch.github.io/releases/download/v1.0.40/Claumi-1.0.40.zip",
+      "md5": "539cc8b603971145199d3eca94ce2c8c",
+      "size": 123797121
     }
   },
   "roblox": {
