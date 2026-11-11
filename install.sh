@@ -236,27 +236,8 @@ RBX_MD5="$(j roblox.md5)"
 RBX_ARCHIVE_APP="$(j roblox.archive_app)"; RBX_ARCHIVE_APP="${RBX_ARCHIVE_APP:-RobloxPlayer.app}"
 RBX_INSTALLER_APP="$(j roblox.installer_app)"; RBX_INSTALLER_APP="${RBX_INSTALLER_APP:-$INSTALLER_APP}"
 
-# Query Roblox CDN for the latest live version
-LIVE_CV="$WORK/live_cv.json"
-for _host in clientsettingscdn.roblox.com clientsettings.roblox.com; do
-  if curl -fsSL --retry 2 --max-time 10 "https://$_host/v2/client-version/MacPlayer" -o "$LIVE_CV" 2>/dev/null \
-     && plutil -convert xml1 -o /dev/null "$LIVE_CV" 2>/dev/null; then
-    _l_ver="$(jf "$LIVE_CV" version)"
-    _l_up="$(jf "$LIVE_CV" clientVersionUpload)"
-    if [ -n "$_l_ver" ] && [ -n "$_l_up" ]; then
-      _l_url="https://setup.rbxcdn.com/mac/$_l_up-RobloxPlayer.zip"
-      _l_head="$(curl -sI --max-time 5 "$_l_url" 2>/dev/null || true)"
-      _l_etag="$(printf '%s\n' "$_l_head" | awk -F': ' 'tolower($1)=="etag" {gsub(/["\r\n]/,"",$2); print $2}')"
-      if [ -n "$_l_etag" ]; then
-        RBX_VER="$_l_up"
-        RBX_PLAYER="$_l_ver"
-        RBX_URL="$_l_url"
-        RBX_MD5="$_l_etag"
-      fi
-    fi
-    break
-  fi
-done
+# Install the client verified with this executor. A newer CDN client can have
+# different VM offsets, so it must not replace the published pin.
 
 EXE_VER="$(j executor.version)"
 EXE_URL="$(j executor.app.url)"
